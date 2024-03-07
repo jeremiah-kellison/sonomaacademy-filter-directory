@@ -25,7 +25,7 @@
 let searchBox = function() {
     let searchBoxElement = document.querySelector("#content_1903384");
     let searchBox = document.createElement("input");
-    searchBox.setAttribute("text", "searchBox");
+    searchBox.setAttribute("type", "text");
     searchBoxElement.prepend(searchBox);
 
 }
@@ -44,15 +44,21 @@ let gatherAltText = function() {
     console.log(altArray);
 }
 
-let addSearchListener = function() {
-    let searchBox = document.querySelector("input[name='searchBox']");
-    searchBox.addEventListener("input", function() {
-        let searchValue = searchBox.value;
-        console.log(searchValue);
-    });
-}
+document.addEventListener("DOMContentLoaded", function() {
+    let checkSearchText = function() {
+        let searchBox = document.querySelector("#content_1903384 > input");
+        if (searchBox) {
+            searchBox.addEventListener("input", function() {
+                let searchText = searchBox.value;
+                console.log(searchText);
+            });
+        }
+    }
+});
 
-window.addEventListener("load", addSearchListener);
+// window.addEventListener("load", checkSearchText);
+
+// window.addEventListener("load", addSearchListener);
 
 
 
@@ -61,4 +67,4 @@ window.addEventListener("load", addSearchListener);
 
 window.addEventListener("load", searchBox);
 window.addEventListener("load", gatherAltText);
-window.addEventListener("load", init);
+// window.addEventListener("load", init);
