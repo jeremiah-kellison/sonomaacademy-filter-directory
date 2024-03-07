@@ -44,6 +44,16 @@ let gatherAltText = function() {
     console.log(altArray);
 }
 
+let addSearchListener = function() {
+    let searchBox = document.querySelector("input[name='searchBox']");
+    searchBox.addEventListener("input", function() {
+        let searchValue = searchBox.value;
+        console.log(searchValue);
+    });
+}
+
+window.addEventListener("load", addSearchListener);
+
 
 
 
