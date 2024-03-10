@@ -21,7 +21,7 @@ let searchBox = function() {
     searchBox.addEventListener('input', function() {
         let filter = searchBox.value.toUpperCase();
         for (let i = 0; i < altArray.length; i++) {
-            let txtValue = altArray[i].textContent || altArray[i].innerText;
+            let txtValue =  altArray[i].innerText;
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
                 altArray[i].style.display = "";
             } else {
