@@ -9,18 +9,8 @@
 // ==/UserScript==
 
 
-// let init = function(){
-//   let directoryElement = document.querySelector("#content_1903384");
-//   let p = document.createElement("p");
-//   p.innerHTML = "Hello Jay!"
-//   p.style.color = "red";
-//   p.style.fontWeight = "bold";
-//   p.style.fontSize = "36px";
-
-//   directoryElement.prepend(p);
 
 
-// }
 
 let searchBox = function() {
     let searchBoxElement = document.querySelector("#content_1903384");
@@ -28,38 +18,28 @@ let searchBox = function() {
     searchBox.setAttribute("type", "text");
     searchBoxElement.prepend(searchBox);
 
+    searchBox.addEventListener('input', function() {
+        let filter = searchBox.value.toUpperCase();
+        for (let i = 0; i < altArray.length; i++) {
+            let txtValue = altArray[i].textContent || altArray[i].innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                altArray[i].style.display = "";
+            } else {
+                altArray[i].style.display = "none";
+            }
+        }
+    });
 }
 
+let altArray = [];
 
 let gatherAltText = function() {
-    let altArray = [];
     let listItems = document.querySelectorAll("#content_1903384 > div > div > ul > li");
     for (let i = 0; i < listItems.length; i++) {
-        let listItem = listItems[i];
-        let links = listItem.querySelectorAll("a");
-        if (links.length > 1) {
-            altArray.push(links[1].innerHTML);
-        }
+        altArray.push(listItems[i]);
+        console.log(altArray);
     }
-    console.log(altArray);
 }
-
-document.addEventListener("DOMContentLoaded", function() {
-    let checkSearchText = function() {
-        let searchBox = document.querySelector("#content_1903384 > input");
-        if (searchBox) {
-            searchBox.addEventListener("input", function() {
-                let searchText = searchBox.value;
-                console.log(searchText);
-            });
-        }
-    }
-});
-
-// window.addEventListener("load", checkSearchText);
-
-// window.addEventListener("load", addSearchListener);
-
 
 
 
@@ -67,4 +47,3 @@ document.addEventListener("DOMContentLoaded", function() {
 
 window.addEventListener("load", searchBox);
 window.addEventListener("load", gatherAltText);
-// window.addEventListener("load", init);
