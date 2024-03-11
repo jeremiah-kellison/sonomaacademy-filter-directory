@@ -11,6 +11,11 @@
 
 
 
+let setGridTemplateColumns = function () {
+    let ulElements = document.querySelector("#content_1903384 > div > div > ul");
+        ulElements.style.gridTemplateColumns = "repeat(5,18%)";
+   
+}
 
 let searchBox = function () {
     let searchBoxElement = document.querySelector("#content_1903384");
@@ -18,20 +23,24 @@ let searchBox = function () {
     searchBox.setAttribute("type", "text");
     searchBoxElement.prepend(searchBox);
 
+
     searchBox.addEventListener('input', function () {
         let filter = searchBox.value.toUpperCase();
         for (let i = 0; i < altArray.length; i++) {
             let txtValue = altArray[i].innerText;
             if (txtValue.toUpperCase().startsWith(filter )) {
                 altArray[i].style.display = "";
+               
             } else {
                 altArray[i].style.display = "none";
+               
             }
         }
     });
 }
 
 let altArray = [];
+let ulArray = [];
 
 let gatherAltText = function () {
     let listItems = document.querySelectorAll("#content_1903384 > div > div > ul > li");
@@ -41,9 +50,11 @@ let gatherAltText = function () {
     }
 }
 
+ 
 
 
 
 
+window.addEventListener("load", setGridTemplateColumns)
 window.addEventListener("load", searchBox);
 window.addEventListener("load", gatherAltText);
