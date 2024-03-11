@@ -22,7 +22,7 @@ let searchBox = function () {
         let filter = searchBox.value.toUpperCase();
         for (let i = 0; i < altArray.length; i++) {
             let txtValue = altArray[i].innerText;
-            if (txtValue.toUpperCase().includes(filter)) {
+            if (txtValue.toUpperCase().startsWith(filter )) {
                 altArray[i].style.display = "";
             } else {
                 altArray[i].style.display = "none";
