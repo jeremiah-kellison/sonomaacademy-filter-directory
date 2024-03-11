@@ -12,17 +12,17 @@
 
 
 
-let searchBox = function() {
+let searchBox = function () {
     let searchBoxElement = document.querySelector("#content_1903384");
     let searchBox = document.createElement("input");
     searchBox.setAttribute("type", "text");
     searchBoxElement.prepend(searchBox);
 
-    searchBox.addEventListener('input', function() {
+    searchBox.addEventListener('input', function () {
         let filter = searchBox.value.toUpperCase();
         for (let i = 0; i < altArray.length; i++) {
-            let txtValue =  altArray[i].innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            let txtValue = altArray[i].innerText;
+            if (txtValue.toUpperCase().includes(filter)) {
                 altArray[i].style.display = "";
             } else {
                 altArray[i].style.display = "none";
@@ -33,7 +33,7 @@ let searchBox = function() {
 
 let altArray = [];
 
-let gatherAltText = function() {
+let gatherAltText = function () {
     let listItems = document.querySelectorAll("#content_1903384 > div > div > ul > li");
     for (let i = 0; i < listItems.length; i++) {
         altArray.push(listItems[i]);
