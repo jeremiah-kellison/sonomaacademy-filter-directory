@@ -17,6 +17,7 @@ let setGridTemplateColumns = function () {
    
 }
 
+
 let searchBox = function () {
     let searchBoxElement = document.querySelector("#content_1903384");
     let searchBox = document.createElement("input");
