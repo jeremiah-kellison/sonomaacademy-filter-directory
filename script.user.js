@@ -45,7 +45,7 @@ let ulArray = [];
 let gatherLiText = function () {
     let listItems = document.querySelectorAll("#content_1903384 > div > div > ul > li");
     for (let i = 0; i < listItems.length; i++) {
-        altArray.push(listItems[i]);
+        liArray.push(listItems[i]);
         console.log(liArray);
     }
 }
