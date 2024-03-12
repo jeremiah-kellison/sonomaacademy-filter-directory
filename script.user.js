@@ -26,27 +26,27 @@ let searchBox = function () {
 
     searchBox.addEventListener('input', function () {
         let filter = searchBox.value.toUpperCase();
-        for (let i = 0; i < altArray.length; i++) {
-            let txtValue = altArray[i].innerText;
+        for (let i = 0; i < liArray.length; i++) {
+            let txtValue = liArray[i].innerText;
             if (txtValue.toUpperCase().startsWith(filter )) {
-                altArray[i].style.display = "";
+                liArray[i].style.display = "";
                
             } else {
-                altArray[i].style.display = "none";
+                liArray[i].style.display = "none";
                
             }
         }
     });
 }
 
-let altArray = [];
+let liArray = [];
 let ulArray = [];
 
-let gatherAltText = function () {
+let gatherLiText = function () {
     let listItems = document.querySelectorAll("#content_1903384 > div > div > ul > li");
     for (let i = 0; i < listItems.length; i++) {
         altArray.push(listItems[i]);
-        console.log(altArray);
+        console.log(liArray);
     }
 }
 
@@ -57,4 +57,4 @@ let gatherAltText = function () {
 
 window.addEventListener("load", setGridTemplateColumns)
 window.addEventListener("load", searchBox);
-window.addEventListener("load", gatherAltText);
+window.addEventListener("load", gatherLiText);
